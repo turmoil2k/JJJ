@@ -4,70 +4,70 @@ using UnityEngine;
 
 public class EmissionInterface : MonoBehaviour
 {
-    public bool StartGame;
-    public bool Credits;
-    public bool QuitGame;
-    public Material StartMaterial;
-    public Material CreditsMaterial;
-    public Material QuitMaterial;
+    public bool Credits; //credits
+    public bool QuitGame; //quit
+    public bool StartGame; //start
+    public Material YMaterial;
+    public Material RMaterial;
+    public Material GMaterial;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartGame = true;
         Credits = false;
         QuitGame = false;
+        StartGame = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(StartGame)
+        if(Credits)
         {
-            StartMaterial.EnableKeyword("_EMISSION");
-            CreditsMaterial.DisableKeyword("_EMISSION");
-            QuitMaterial.DisableKeyword("_EMISSION");
+            YMaterial.EnableKeyword("_EMISSION");
+            RMaterial.DisableKeyword("_EMISSION");
+            GMaterial.DisableKeyword("_EMISSION");
 
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
-                StartGame = false;
                 Credits = false;
-                QuitGame = true;
+                QuitGame = false;
+                StartGame = true;
             }
 
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
-                StartGame = false;
-                Credits = true;
-                QuitGame = false;
-            }
-        }
-
-        if (Credits)
-        {
-            StartMaterial.DisableKeyword("_EMISSION");
-            CreditsMaterial.EnableKeyword("_EMISSION");
-            QuitMaterial.DisableKeyword("_EMISSION");
-
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-            {
-                StartGame = true;
                 Credits = false;
-                QuitGame = false;
+                QuitGame = true;
+                StartGame = false;
             }
         }
 
         if (QuitGame)
         {
-            StartMaterial.DisableKeyword("_EMISSION");
-            CreditsMaterial.DisableKeyword("_EMISSION");
-            QuitMaterial.EnableKeyword("_EMISSION");
+            YMaterial.DisableKeyword("_EMISSION");
+            RMaterial.EnableKeyword("_EMISSION");
+            GMaterial.DisableKeyword("_EMISSION");
+
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            {
+                Credits = true;
+                QuitGame = false;
+                StartGame = false;
+            }
+        }
+
+        if (StartGame)
+        {
+            YMaterial.DisableKeyword("_EMISSION");
+            RMaterial.DisableKeyword("_EMISSION");
+            GMaterial.EnableKeyword("_EMISSION");
 
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
-                StartGame = true;
-                Credits = false;
+                Credits = true;
                 QuitGame = false;
+                StartGame = false;
             }
         }
     }
