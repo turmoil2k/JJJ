@@ -17,6 +17,9 @@ public class MenuMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = Vector3.Lerp(transform.position, CurrentScene.position, Time.deltaTime * Speed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, CurrentScene.rotation, Time.deltaTime * Speed);
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             CurrentScene = VirtualScenes[0];
@@ -26,11 +29,5 @@ public class MenuMovement : MonoBehaviour
         {
             CurrentScene = VirtualScenes[1];
         }
-    }
-
-    void LateUpdate()
-    {
-        transform.position = Vector3.Lerp(transform.position, CurrentScene.position, Time.deltaTime * Speed);
-        transform.rotation = Quaternion.Lerp(transform.rotation, CurrentScene.rotation, Time.deltaTime * Speed);
     }
 }
