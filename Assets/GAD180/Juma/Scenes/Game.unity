@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e870afec5c4dd54bb776820604b8876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: 40
+  speed: 100
 --- !u!54 &43259602
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -162,7 +164,7 @@ Rigidbody:
   m_GameObject: {fileID: 43259600}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 10
+  m_Drag: 5
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -540,7 +542,7 @@ GameObject:
   - component: {fileID: 1366925648}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -651,6 +653,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629181f4b7b62be4e98fd9e00fe62ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: 40
+  speed: 100
 --- !u!54 &1509730826
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -660,7 +664,7 @@ Rigidbody:
   m_GameObject: {fileID: 1509730824}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 10
+  m_Drag: 5
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
