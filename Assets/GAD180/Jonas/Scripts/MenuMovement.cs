@@ -13,11 +13,16 @@ public class MenuMovement : MonoBehaviour
     public Material YMaterial;
     public Material RMaterial;
     public Material GMaterial;
+    public bool MainMenu;
+    public bool SelectMenu;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        MainMenu = true;
+        SelectMenu = false;
+
         Credits = false;
         QuitGame = false;
         StartGame = true;
@@ -29,67 +34,81 @@ public class MenuMovement : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, CurrentScene.position, Time.deltaTime * Speed);
         transform.rotation = Quaternion.Lerp(transform.rotation, CurrentScene.rotation, Time.deltaTime * Speed);
 
-        if (Credits)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            YMaterial.EnableKeyword("_EMISSION");
-            RMaterial.DisableKeyword("_EMISSION");
-            GMaterial.DisableKeyword("_EMISSION");
+            CurrentScene = VirtualScenes[0];
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-            {
-                Credits = false;
-                QuitGame = false;
-                StartGame = true;
-            }
+            SelectMenu = false;
+            MainMenu = true;
 
-            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-            {
-                Credits = false;
-                QuitGame = true;
-                StartGame = false;
-            }
+            Credits = false;
+            QuitGame = false;
+            StartGame = true;
+
         }
 
-        if (QuitGame)
+        if (MainMenu)
         {
-            YMaterial.DisableKeyword("_EMISSION");
-            RMaterial.EnableKeyword("_EMISSION");
-            GMaterial.DisableKeyword("_EMISSION");
-
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Credits)
             {
-                Application.Quit();
+                YMaterial.EnableKeyword("_EMISSION");
+                RMaterial.DisableKeyword("_EMISSION");
+                GMaterial.DisableKeyword("_EMISSION");
+
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                {
+                    Credits = false;
+                    QuitGame = false;
+                    StartGame = true;
+                }
+
+                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                {
+                    Credits = false;
+                    QuitGame = true;
+                    StartGame = false;
+                }
             }
 
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            if (QuitGame)
             {
-                Credits = true;
-                QuitGame = false;
-                StartGame = false;
-            }
-        }
+                YMaterial.DisableKeyword("_EMISSION");
+                RMaterial.EnableKeyword("_EMISSION");
+                GMaterial.DisableKeyword("_EMISSION");
 
-        if (StartGame)
-        {
-            YMaterial.DisableKeyword("_EMISSION");
-            RMaterial.DisableKeyword("_EMISSION");
-            GMaterial.EnableKeyword("_EMISSION");
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    Application.Quit();
+                }
 
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                CurrentScene = VirtualScenes[0];
-            }
-
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                CurrentScene = VirtualScenes[1];
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                {
+                    Credits = true;
+                    QuitGame = false;
+                    StartGame = false;
+                }
             }
 
-            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            if (StartGame)
             {
-                Credits = true;
-                QuitGame = false;
-                StartGame = false;
+                YMaterial.DisableKeyword("_EMISSION");
+                RMaterial.DisableKeyword("_EMISSION");
+                GMaterial.EnableKeyword("_EMISSION");
+
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    CurrentScene = VirtualScenes[1];
+
+                    MainMenu = false;
+                    SelectMenu = true;
+                }
+
+                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                {
+                    Credits = true;
+                    QuitGame = false;
+                    StartGame = false;
+                }
             }
         }
     }
