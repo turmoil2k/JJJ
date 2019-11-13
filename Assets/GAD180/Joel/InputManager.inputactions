@@ -14,7 +14,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Shooting",
+                    "name": "Shoot",
                     "type": "Button",
                     "id": "b650850c-78d9-458e-a00d-6bdf1945fd07",
                     "expectedControlType": "",
@@ -140,7 +140,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shooting",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -151,7 +151,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shooting",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -170,7 +170,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Shooting",
+                    "name": "Shoot",
                     "type": "Button",
                     "id": "fb633f83-5d9a-4e5d-9ffd-4f9b458e9a76",
                     "expectedControlType": "",
@@ -296,7 +296,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shooting",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -307,7 +307,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shooting",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

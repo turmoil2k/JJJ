@@ -109,7 +109,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!114 &-7959117747837503435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,5 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068556ef076c2964f93727ff58fc0f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  Damage: 10
+  TankMask:
+    serializedVersion: 2
+    m_Bits: 512
+  speed: 30
+  dmg_val: 0
+  lifetime: 2
