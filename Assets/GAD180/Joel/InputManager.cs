@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class InputManager : IInputActionCollection, IDisposable
+public class @InputManager : IInputActionCollection, IDisposable
 {
     private InputActionAsset asset;
-    public InputManager()
+    public @InputManager()
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""InputManager"",
@@ -390,8 +390,8 @@ public class InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_Shoot;
     public struct Player1Actions
     {
-        private InputManager m_Wrapper;
-        public Player1Actions(InputManager wrapper) { m_Wrapper = wrapper; }
+        private @InputManager m_Wrapper;
+        public Player1Actions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player1_Movement;
         public InputAction @Shoot => m_Wrapper.m_Player1_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
@@ -403,22 +403,22 @@ public class InputManager : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_Player1ActionsCallbackInterface != null)
             {
-                Movement.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
-                Movement.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
-                Movement.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
-                Shoot.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
-                Shoot.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
-                Shoot.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
+                @Movement.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
+                @Shoot.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
             {
-                Movement.started += instance.OnMovement;
-                Movement.performed += instance.OnMovement;
-                Movement.canceled += instance.OnMovement;
-                Shoot.started += instance.OnShoot;
-                Shoot.performed += instance.OnShoot;
-                Shoot.canceled += instance.OnShoot;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }
@@ -431,8 +431,8 @@ public class InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2_Shoot;
     public struct Player2Actions
     {
-        private InputManager m_Wrapper;
-        public Player2Actions(InputManager wrapper) { m_Wrapper = wrapper; }
+        private @InputManager m_Wrapper;
+        public Player2Actions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player2_Movement;
         public InputAction @Shoot => m_Wrapper.m_Player2_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
@@ -444,22 +444,22 @@ public class InputManager : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_Player2ActionsCallbackInterface != null)
             {
-                Movement.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
-                Movement.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
-                Movement.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
-                Shoot.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
-                Shoot.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
-                Shoot.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
+                @Movement.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
+                @Shoot.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
             {
-                Movement.started += instance.OnMovement;
-                Movement.performed += instance.OnMovement;
-                Movement.canceled += instance.OnMovement;
-                Shoot.started += instance.OnShoot;
-                Shoot.performed += instance.OnShoot;
-                Shoot.canceled += instance.OnShoot;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }
