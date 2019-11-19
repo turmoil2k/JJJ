@@ -10796,13 +10796,14 @@ GameObject:
   - component: {fileID: 363262012}
   - component: {fileID: 363262011}
   - component: {fileID: 363262014}
+  - component: {fileID: 363262015}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &363262011
 AudioListener:
   m_ObjectHideFlags: 0
@@ -10907,6 +10908,25 @@ MonoBehaviour:
   BlueCube: {fileID: 2100000, guid: 3244eedb59152435781bed2ddd25e1a2, type: 2}
   PurpleCube: {fileID: 2100000, guid: 71bc40a87961148dba696d2faa6fe8d4, type: 2}
   GreenCube: {fileID: 2100000, guid: e5a7e44fc76e1484a9f587e1ec28b528, type: 2}
+--- !u!95 &363262015
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363262010}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &371753915
 GameObject:
   m_ObjectHideFlags: 0
@@ -48096,7 +48116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1661604328
 Transform:
   m_ObjectHideFlags: 0

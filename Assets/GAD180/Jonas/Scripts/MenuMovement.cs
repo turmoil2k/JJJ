@@ -83,6 +83,7 @@ public class MenuMovement : MonoBehaviour
 
                     SelectShapeP1 = false;
                     SelectShapeP2 = true;
+                    Green = true;
                     MainMenu = false;
                 }
             }
@@ -106,6 +107,7 @@ public class MenuMovement : MonoBehaviour
 
                     SelectShapeP1 = false;
                     SelectShapeP2 = true;
+                    Green = true;
                     MainMenu = false;
                 }
             }
@@ -240,6 +242,9 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
+#if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+#endif
                     Application.Quit();
                 }
 
