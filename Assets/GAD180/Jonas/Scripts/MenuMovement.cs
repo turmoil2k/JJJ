@@ -83,6 +83,7 @@ public class MenuMovement : MonoBehaviour
 
                     SelectShapeP1 = false;
                     SelectShapeP2 = true;
+                    Green = true;
                     MainMenu = false;
                 }
             }
@@ -106,6 +107,7 @@ public class MenuMovement : MonoBehaviour
 
                     SelectShapeP1 = false;
                     SelectShapeP2 = true;
+                    Green = true;
                     MainMenu = false;
                 }
             }
