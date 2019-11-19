@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    public GameObject Player;
-    public GameObject EnemyA;
+    public GameObject player;
 
-    public float Health = 100;
+    public float health = 100;
 
-    public void TakeDamage(float DamageAmt)
+    public void TakeDamage(float damageAmt) 
+    { 
+        health -= damageAmt; 
+    }
+
+    public void Update()
     {
-        Health -= DamageAmt;
-        if (Health <= 0) { Destroy(EnemyA); }
+        if (health <= 0) { player.SetActive(false); }
     }
 }
