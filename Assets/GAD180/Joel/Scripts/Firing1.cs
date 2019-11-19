@@ -1,23 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Firing1 : MonoBehaviour
 {
     public GameObject Bullet;
     public Transform FirePoint;
+    public InputManager FireInput;
     
-    public float Rate = 0.2f;
-    private float Timer = 0f;
+    public float rate = 0.2f;
+    private float timer = 0f;
+
+    private void Awake()
+    {
+        FireInput = new InputManager();
+        FireInput.Player1.Shoot.performed += ctx => Fire();
+    }
+
+    private void OnEnable() 
+    { 
+        FireInput.Player1.Enable(); 
+    }
+    private void OnDisable() 
+    { 
+        FireInput.Player1.Disable(); 
+    }
 
     void Update()
     {
-        Timer += Time.deltaTime;
-        if (Input.GetKey(KeyCode.Space) && Timer > Rate)
-        {
-            Fire();
-            Timer = 0f;
-        }
+        //Timer += Time.deltaTime;
+        //if (Timer > Rate)
+        //{
+        //    Fire();
+        //    Timer = 0f;
+        //}
     }
 
     void Fire()

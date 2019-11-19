@@ -5,7 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed;
-    public float lifetime;
+    public float lifetime = 2f;
+    public float damageAmt = 20;
 
     void Start()
     {
@@ -15,13 +16,14 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider onHit)
     {
-        Damage n_damage = onHit.GetComponent<Damage>();
+        Damage damage = onHit.GetComponent<Damage>();
         //float Hit_Distance = Vector3.Distance(onHit.transform.position, gameObject.transform.position);
 
         //if (Hit_Distance >= 5f)
         {
-            if (n_damage != null) { n_damage.TakeDamage(20); }
+            if (damage != null) { damage.TakeDamage(damageAmt); }
         }
+
         Destroy(gameObject);
     }
 

@@ -28,9 +28,9 @@ public class InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Shoot"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""b650850c-78d9-458e-a00d-6bdf1945fd07"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -149,7 +149,7 @@ public class InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""81cf2f93-a5ef-4438-a2f8-556c323ad013"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<XInputController>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -160,7 +160,7 @@ public class InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""49b44821-ac4c-45c0-866a-9bf380cb56aa"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -305,7 +305,7 @@ public class InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fce9aa14-45ea-4338-b90c-a73745f0343d"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -316,7 +316,7 @@ public class InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ae2e0513-70c2-4ffe-bdfe-810dfedcebad"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/m"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
