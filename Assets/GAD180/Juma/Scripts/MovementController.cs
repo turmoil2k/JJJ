@@ -13,6 +13,7 @@ public class MovementController : MonoBehaviour
     int recoil = 2000;
     bool isGrounded;
     public int speed = 100;
+    public ParticleSystem exhaust1;
 
     void Start()
     {
@@ -24,13 +25,18 @@ public class MovementController : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
+    {//FIX POST PROCESSING
         //START PLAYER 1
         if (gameObject.tag == "Player")
         {
             if (Input.GetKey(KeyCode.W))
             {
                 rigidBody.velocity += transform.forward * speed / 50;
+                exhaust1.Emit (1);
+            }
+            else
+            {
+                exhaust1.Stop();
             }
 
             if (Input.GetKey(KeyCode.S))
