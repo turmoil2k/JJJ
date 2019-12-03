@@ -16,6 +16,7 @@ public class MenuMovement : MonoBehaviour
     public bool MainMenu;
     public bool SelectShapeP1;
     public bool SelectShapeP2;
+    public bool CreditsScene;
     public bool Orange;
     public bool Yellow;
     public bool Red;
@@ -211,6 +212,17 @@ public class MenuMovement : MonoBehaviour
             }
         }
 
+
+        if (CreditsScene)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CurrentScene = VirtualScenes[0];
+                MainMenu = true;
+                CreditsScene = false;
+            }
+        }
+
         if (MainMenu)
         {
             if (Credits)
@@ -218,6 +230,14 @@ public class MenuMovement : MonoBehaviour
                 YMaterial.EnableKeyword("_EMISSION");
                 RMaterial.DisableKeyword("_EMISSION");
                 GMaterial.DisableKeyword("_EMISSION");
+
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    CurrentScene = VirtualScenes[3];
+
+                    CreditsScene = true;
+                    MainMenu = false;
+                }
 
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
                 {
@@ -281,6 +301,7 @@ public class MenuMovement : MonoBehaviour
                     StartGame = false;
                 }
             }
+
         }
 
     }
