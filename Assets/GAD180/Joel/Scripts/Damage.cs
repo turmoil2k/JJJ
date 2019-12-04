@@ -9,12 +9,8 @@ public class Damage : MonoBehaviour
     public float health = 100;
 
     public void TakeDamage(float damageAmt) 
-    { 
-        health -= damageAmt; 
-    }
+    { health -= damageAmt; }
 
-    public void Update()
-    {
-        if (health <= 0) { player.SetActive(false); }
-    }
+    public void Update() 
+    { if (health <= 0) { player.SetActive(false); } }
 }
