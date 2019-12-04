@@ -16,12 +16,19 @@ public class MenuMovement : MonoBehaviour
     public bool MainMenu;
     public bool SelectShapeP1;
     public bool SelectShapeP2;
+    public bool CreditsScene;
     public bool Orange;
-    public bool Green;
+    public bool Yellow;
     public bool Red;
     public Material OrangeCube;
-    public Material GreenCube;
+    public Material YellowCube;
     public Material RedCube;
+    public bool Blue;
+    public bool Purple;
+    public bool Green;
+    public Material BlueCube;
+    public Material PurpleCube;
+    public Material GreenCube;
 
     // Start is called before the first frame update
     void Start()
@@ -54,20 +61,20 @@ public class MenuMovement : MonoBehaviour
             if (Orange)
             {
                 OrangeCube.EnableKeyword("_EMISSION");
-                GreenCube.DisableKeyword("_EMISSION");
+                YellowCube.DisableKeyword("_EMISSION");
                 RedCube.DisableKeyword("_EMISSION");
 
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
                 {
                     Orange = false;
-                    Green = false;
+                    Yellow = false;
                     Red = true;
                 }
 
                 if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
                 {
                     Orange = false;
-                    Green = true;
+                    Yellow = true;
                     Red = false;
                 }
 
@@ -77,20 +84,21 @@ public class MenuMovement : MonoBehaviour
 
                     SelectShapeP1 = false;
                     SelectShapeP2 = true;
+                    Green = true;
                     MainMenu = false;
                 }
             }
 
-            if (Green)
+            if (Yellow)
             {
                 OrangeCube.DisableKeyword("_EMISSION");
-                GreenCube.EnableKeyword("_EMISSION");
+                YellowCube.EnableKeyword("_EMISSION");
                 RedCube.DisableKeyword("_EMISSION");
 
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.S))
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
                 {
                     Orange = true;
-                    Green = false;
+                    Yellow = false;
                     Red = false;
                 }
 
@@ -100,6 +108,7 @@ public class MenuMovement : MonoBehaviour
 
                     SelectShapeP1 = false;
                     SelectShapeP2 = true;
+                    Green = true;
                     MainMenu = false;
                 }
             }
@@ -107,13 +116,13 @@ public class MenuMovement : MonoBehaviour
             if (Red)
             {
                 OrangeCube.DisableKeyword("_EMISSION");
-                GreenCube.DisableKeyword("_EMISSION");
+                YellowCube.DisableKeyword("_EMISSION");
                 RedCube.EnableKeyword("_EMISSION");
 
                 if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
                 {
                     Orange = true;
-                    Green = false;
+                    Yellow = false;
                     Red = false;
                 }
 
@@ -123,6 +132,7 @@ public class MenuMovement : MonoBehaviour
 
                     SelectShapeP1 = false;
                     SelectShapeP2 = true;
+                    Green = true;
                     MainMenu = false;
                 }
             }
@@ -136,7 +146,83 @@ public class MenuMovement : MonoBehaviour
                 SelectShapeP1 = true;
                 SelectShapeP2 = false;
             }
+
+            if (Blue)
+            {
+                BlueCube.EnableKeyword("_EMISSION");
+                PurpleCube.DisableKeyword("_EMISSION");
+                GreenCube.DisableKeyword("_EMISSION");
+
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                {
+                    Blue = false;
+                    Purple = false;
+                    Green = true;
+                }
+
+                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                {
+                    Blue = false;
+                    Purple = true;
+                    Green = false;
+                }
+
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+
+                }
+            }
+
+            if (Purple)
+            {
+                BlueCube.DisableKeyword("_EMISSION");
+                PurpleCube.EnableKeyword("_EMISSION");
+                GreenCube.DisableKeyword("_EMISSION");
+
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+                {
+                    Blue = true;
+                    Purple = false;
+                    Green = false;
+                }
+
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+
+                }
+            }
+
+            if (Green)
+            {
+                BlueCube.DisableKeyword("_EMISSION");
+                PurpleCube.DisableKeyword("_EMISSION");
+                GreenCube.EnableKeyword("_EMISSION");
+
+                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                {
+                    Blue = true;
+                    Purple = false;
+                    Green = false;
+                }
+
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+
+                }
+            }
         }
+
+
+        if (CreditsScene)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CurrentScene = VirtualScenes[0];
+                MainMenu = true;
+                CreditsScene = false;
+            }
+        }
+
         if (MainMenu)
         {
             if (Credits)
@@ -144,6 +230,14 @@ public class MenuMovement : MonoBehaviour
                 YMaterial.EnableKeyword("_EMISSION");
                 RMaterial.DisableKeyword("_EMISSION");
                 GMaterial.DisableKeyword("_EMISSION");
+
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    CurrentScene = VirtualScenes[3];
+
+                    CreditsScene = true;
+                    MainMenu = false;
+                }
 
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
                 {
@@ -168,6 +262,9 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
+#if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+#endif
                     Application.Quit();
                 }
 
@@ -204,6 +301,7 @@ public class MenuMovement : MonoBehaviour
                     StartGame = false;
                 }
             }
+
         }
 
     }
