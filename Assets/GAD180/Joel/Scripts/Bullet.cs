@@ -5,16 +5,15 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public PlayerStats player;
-    private A_Firing fire;
 
     private float speed = 20f;
-    //public float lifetime = 2f;
+    public float lifetime = 2f;
 
     void Start()
     {
         Rigidbody RB = GetComponent<Rigidbody>();
-        RB.velocity = transform.forward * fire.m_CurrentForce;
-        //Invoke("Destroy_Bullet", lifetime);
+        RB.velocity = transform.forward * speed;
+        Invoke("Destroy_Bullet", lifetime);
     }
     private void OnTriggerEnter(Collider onHit)
     {

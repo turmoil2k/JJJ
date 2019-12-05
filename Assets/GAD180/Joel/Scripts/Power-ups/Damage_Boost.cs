@@ -10,7 +10,7 @@ public class Damage_Boost : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        //if (other.CompareTag("Player"))
         { StartCoroutine(Pick_Up(other)); }
     }
 

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Speed_Boost : MonoBehaviour
 {
-    private float duration = 2f;
     private MovementController controls;
+
+    private float duration = 2f;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        //if (other.CompareTag("Player"))
         { StartCoroutine(Pick_Up(other)); }
     }
 
@@ -23,6 +25,7 @@ public class Speed_Boost : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         controls.speed /= 2;
+
         Destroy(gameObject);
     }
 }
