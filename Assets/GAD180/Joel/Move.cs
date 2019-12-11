@@ -6,7 +6,7 @@ public class Move : MonoBehaviour
 {
     private Rigidbody RB;
     public InputManager MoveInput;
-    public Firing fp;
+    //public Firing fp;
 
     public int speed = 30;
     public float maxSpeed = 50;
