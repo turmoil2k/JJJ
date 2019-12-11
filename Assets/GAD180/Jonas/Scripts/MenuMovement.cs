@@ -29,6 +29,10 @@ public class MenuMovement : MonoBehaviour
     public Material BlueCube;
     public Material PurpleCube;
     public Material GreenCube;
+    public bool GameDemo;
+    public bool FinalGame;
+    public GameObject Camera;
+    public GameObject Level;
 
     // Start is called before the first frame update
     void Start()
@@ -80,12 +84,7 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    CurrentScene = VirtualScenes[2];
-
-                    SelectShapeP1 = false;
-                    SelectShapeP2 = true;
-                    Green = true;
-                    MainMenu = false;
+                    StartCoroutine(Timer());
                 }
             }
 
@@ -104,12 +103,7 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    CurrentScene = VirtualScenes[2];
-
-                    SelectShapeP1 = false;
-                    SelectShapeP2 = true;
-                    Green = true;
-                    MainMenu = false;
+                    StartCoroutine(Timer());
                 }
             }
 
@@ -128,12 +122,7 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    CurrentScene = VirtualScenes[2];
-
-                    SelectShapeP1 = false;
-                    SelectShapeP2 = true;
-                    Green = true;
-                    MainMenu = false;
+                    StartCoroutine(Timer());
                 }
             }
         }
@@ -169,7 +158,19 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
+                    Debug.Log("Game Started");
+                    GameDemo = true;
 
+                    if(GameDemo)
+                    {
+                        Camera.SetActive(false);
+                        Level.SetActive(true);
+                    }
+
+                    if (FinalGame)
+                    {
+
+                    }
                 }
             }
 
@@ -188,7 +189,7 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-
+                    Debug.Log("Game Started");
                 }
             }
 
@@ -207,7 +208,7 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-
+                    Debug.Log("Game Started");
                 }
             }
         }
@@ -301,8 +302,18 @@ public class MenuMovement : MonoBehaviour
                     StartGame = false;
                 }
             }
-
         }
+    }
 
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(1/10);
+
+        CurrentScene = VirtualScenes[2];
+
+        SelectShapeP1 = false;
+        SelectShapeP2 = true;
+        Green = true;
+        MainMenu = false;
     }
 }
