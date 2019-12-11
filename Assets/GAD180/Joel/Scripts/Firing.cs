@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum PlayerID { Player1, Player2 }
 
@@ -31,11 +32,11 @@ public class Firing : MonoBehaviour
         switch (player)
         {
             case PlayerID.Player1:
-                FireInput.Player1.Shoot.performed += ctx => Fire();
+                FireInput.Player1.Shoot.performed += Fire;
                 break;
 
             case PlayerID.Player2:
-                FireInput.Player2.Shoot.performed += ctx => Fire();
+                FireInput.Player2.Shoot.performed += Fire;
                 break;
 
             default:
@@ -43,21 +44,8 @@ public class Firing : MonoBehaviour
         }
     }
 
-    void Fire() 
+    void Fire(InputAction.CallbackContext context) 
     { GameObject Bullet_Clone = Instantiate(Bullet, FirePoint.position, FirePoint.rotation) as GameObject; }
 
     #endregion
-
-    //public float firerate = 0.2f;
-    //private float timer = 0f;
-
-    void Update()
-    {
-        //timer += Time.deltaTime;
-        //if (timer > rate)
-        //{
-        //    Fire();
-        //    timer = 0f;
-        //}
-    }
 }

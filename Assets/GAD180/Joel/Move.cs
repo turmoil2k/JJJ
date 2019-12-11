@@ -6,9 +6,11 @@ public class Move : MonoBehaviour
 {
     private Rigidbody RB;
     public InputManager MoveInput;
+    public Firing fp;
 
+    public int speed = 30;
+    public float maxSpeed = 50;
     public Vector2 movement;
-    Vector3 inputDirection;
 
     private void OnEnable()
     {
@@ -25,19 +27,43 @@ public class Move : MonoBehaviour
     private void Start()
     {
         RB = GetComponent<Rigidbody>();
+        RB.constraints = RigidbodyConstraints.FreezeRotation;
     }
 
     private void Awake()
     {
-        MoveInput.Player1.Movement.performed += ctx => movement = ctx.ReadValue<Vector2>();
+        MoveInput = new InputManager();
+        
+        MoveInput.Player1.Move.performed += ctx => movement = ctx.ReadValue<Vector2>();
+        MoveInput.Player1.Move.canceled += ctx => movement = Vector2.zero;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        float horizontal = movement.x;
-        float vertical = movement.y;
+        //movement.x += ;
         
-        var targetInput = new Vector3(horizontal, 0, vertical);
-        inputDirection = Vector3.Lerp(inputDirection, targetInput, Time.deltaTime * 10f);
+        Vector3 move_pos = new Vector3(movement.x, 0, movement.y)  * speed;
+        RB.velocity += move_pos;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //transform.forward = RB.velocity;
+        //transform.LookAt(transform.position + ((RB.velocity.magnitude > 0) ? RB.velocity : transform.forward), Vector3.up);
+        //var dir = transform.eulerAngles;
+        //dir.x = 0;
+        //transform.eulerAngles = dir;
+        //if (RB.velocity.magnitude > maxSpeed)
+        //{
+        //    RB.velocity = RB.velocity.normalized * maxSpeed;
+        //}
+        //transform.LookAt(fp.FirePoint, RB.velocity);
     }
 }

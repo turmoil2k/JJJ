@@ -10,7 +10,6 @@ public class Speed_Boost : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.CompareTag("Player"))
         { StartCoroutine(Pick_Up(other)); }
     }
 
