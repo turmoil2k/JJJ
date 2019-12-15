@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public PlayerStats player;
 
-    private float speed = 20f;
+    private float speed = 30f;
     public float lifetime = 2f;
 
     void Start()
