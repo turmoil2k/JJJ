@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+public enum playerColor
+{
+    color1,color2,color3
+}
 
 public class MenuMovement : MonoBehaviour
 {
+    public playerColor player1Color, Player2Color;
     public Transform[] VirtualScenes;
     public float Speed;
     public Transform CurrentScene;
@@ -33,6 +39,28 @@ public class MenuMovement : MonoBehaviour
     public bool FinalGame;
     public GameObject Camera;
     public GameObject Level;
+    public bool PlayerIsRed;
+    public bool PlayerIsOrange;
+    public bool PlayerIsYellow;
+    public bool PlayerIsGreen;
+    public bool PlayerIsBlue;
+    public bool PlayerIsPurple;
+    public MeshRenderer p1, p2;
+    public TrailRenderer p1t, p2t;
+    public Material yellow, red, blue, orange, green, purple;
+    public Material yellowt, redt, bluet, oranget, greent, purplet;
+
+    //public InputManager Inputs;
+
+    //private void OnEnable() { Inputs.Menu.Enable(); }
+
+    //private void OnDisable() { Inputs.Menu.Disable(); }
+
+    private void Awake()
+    {
+       // Inputs.Menu.Move.performed += ctx => { Debug.Log("bib"); MenuMove = ctx.ReadValue<Vector2>(); };
+       // Inputs.Menu.Down.performed += ctx => Debug.Log("test");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +72,14 @@ public class MenuMovement : MonoBehaviour
         Credits = false;
         QuitGame = false;
         StartGame = true;
+
+        PlayerIsRed = false;
+        PlayerIsOrange = false;
+        PlayerIsYellow = false;
+        PlayerIsGreen = false;
+        PlayerIsBlue = false;
+        PlayerIsPurple = false;
+
     }
 
     // Update is called once per frame
@@ -84,6 +120,8 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
+                    PlayerIsOrange = true;
+
                     StartCoroutine(Timer());
                 }
             }
@@ -103,6 +141,8 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
+                    PlayerIsYellow = true;
+
                     StartCoroutine(Timer());
                 }
             }
@@ -122,6 +162,8 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
+                    PlayerIsRed = true;
+
                     StartCoroutine(Timer());
                 }
             }
@@ -158,7 +200,7 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    Debug.Log("Game Started");
+                    PlayerIsBlue = true;
                     GameDemo = true;
 
                     if(GameDemo)
@@ -189,7 +231,14 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    Debug.Log("Game Started");
+                    PlayerIsPurple = true;
+                    GameDemo = true;
+
+                    if (GameDemo)
+                    {
+                        Camera.SetActive(false);
+                        Level.SetActive(true);
+                    }
                 }
             }
 
@@ -208,7 +257,14 @@ public class MenuMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    Debug.Log("Game Started");
+                    PlayerIsGreen = true;
+                    GameDemo = true;
+
+                    if (GameDemo)
+                    {
+                        Camera.SetActive(false);
+                        Level.SetActive(true);
+                    }
                 }
             }
         }
@@ -302,6 +358,43 @@ public class MenuMovement : MonoBehaviour
                     StartGame = false;
                 }
             }
+        }
+
+        if (PlayerIsRed)
+        {
+            p1.material = red;
+            p1t.material = redt;
+        }
+
+        if (PlayerIsOrange)
+        {
+            p1.material = orange;
+            p1t.material = oranget;
+
+        }
+
+        if (PlayerIsYellow)
+        {
+            p1.material = yellow;
+            p1t.material = yellowt;
+        }
+
+        if (PlayerIsGreen)
+        {
+            p2.material = green;
+            p2t.material = greent;
+        }
+
+        if (PlayerIsBlue)
+        {
+            p2.material = blue;
+            p2t.material = bluet;
+        }
+
+        if (PlayerIsPurple)
+        {
+            p2.material = purple;
+            p2t.material = purplet;
         }
     }
 

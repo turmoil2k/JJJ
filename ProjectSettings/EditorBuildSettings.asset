@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/GAD180/Jonas/Scene/Menu.unity
+    guid: b521361ebae164ea3bfa5a08b4fe7623
   m_configObjects: {}
