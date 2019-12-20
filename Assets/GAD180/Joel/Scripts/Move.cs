@@ -52,7 +52,7 @@ public class Move : MonoBehaviour
 
     private void MoveP1()
     {
-        Vector3 move_pos = new Vector3(movementP1.y, 0, movementP1.x) * speed;
+        Vector3 move_pos = new Vector3(-movementP1.y, 0, movementP1.x) * speed;
         RB1.velocity += move_pos;
 
         RB1.transform.forward += RB1.velocity;
@@ -66,7 +66,7 @@ public class Move : MonoBehaviour
 
     private void MoveP2()
     {
-        Vector3 move_pos = new Vector3(-movementP2.y, 0, -movementP2.x) * speed;
+        Vector3 move_pos = new Vector3(movementP2.y, 0, -movementP2.x) * speed;
         RB2.velocity += move_pos;
 
         RB2.transform.forward += RB2.velocity;
