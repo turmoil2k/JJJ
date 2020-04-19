@@ -9,7 +9,7 @@ public class Restart : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.R) && gameOver)
+        if (Input.GetKeyDown(KeyCode.Return) && gameOver)
         {
             SceneManager.LoadScene(0);
             gameOver = false;
